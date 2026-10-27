@@ -1,3 +1,5 @@
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 import express from 'express';
 import cookieParser from 'cookie-parser';
 import helmet from 'helmet';
@@ -38,6 +40,13 @@ export function createApp() {
   app.use('/api/cron', cronRoutes);
 
   app.use('/api', notFoundHandler);
+
+  // Single-server deployments (e.g. Render) serve the built React app from here.
+  if (env.serveClient) {
+    const dist = fileURLToPath(new URL('../../client/dist', import.meta.url));
+    app.use(express.static(dist, { maxAge: '1h', index: false }));
+    app.get(/^(?!\/api\/).*/, (req, res) => res.sendFile(path.join(dist, 'index.html')));
+  }
 
   app.use(errorHandler);
   return app;

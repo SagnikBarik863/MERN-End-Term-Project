@@ -7,6 +7,7 @@ import { connectDB } from './db.js';
 import authRoutes from './routes/auth.js';
 import taskRoutes from './routes/tasks.js';
 import scheduleRoutes from './routes/schedule.js';
+import notificationRoutes from './routes/notifications.js';
 import statsRoutes from './routes/stats.js';
 import { errorHandler, notFoundHandler } from './middleware/error.js';
 
@@ -31,6 +32,7 @@ export function createApp() {
   app.use('/api/auth', authRoutes);
   app.use('/api/tasks', taskRoutes);
   app.use('/api/schedule', scheduleRoutes);
+  app.use('/api/notifications', notificationRoutes);
   app.use('/api/stats', statsRoutes);
 
   app.use('/api', notFoundHandler);

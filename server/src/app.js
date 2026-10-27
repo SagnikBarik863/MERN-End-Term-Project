@@ -5,6 +5,7 @@ import cors from 'cors';
 import { env } from './config/env.js';
 import { connectDB } from './db.js';
 import authRoutes from './routes/auth.js';
+import taskRoutes from './routes/tasks.js';
 import { errorHandler, notFoundHandler } from './middleware/error.js';
 
 export function createApp() {
@@ -26,6 +27,7 @@ export function createApp() {
   });
 
   app.use('/api/auth', authRoutes);
+  app.use('/api/tasks', taskRoutes);
 
   app.use('/api', notFoundHandler);
 

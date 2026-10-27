@@ -2,7 +2,7 @@
 
 DeadlineOS turns a student's assignments, exams and projects into a **ranked to-do list** and a **day-by-day study plan** that fits the hours they actually have. It also **warns before a new deadline breaks the plan**.
 
-**Live app:** _to be added after deployment_
+**Live app:** https://deadlineos-seven.vercel.app
 **Demo video:** _to be added_
 
 ---
@@ -176,7 +176,7 @@ Configured in `server/.env` locally, or in the hosting provider's settings. See 
 
 **Single server (Render, Railway, a VM).** Build command `npm install && npm run build`, start command `npm start`, with `SERVE_CLIENT=true` and the variables above. The in-process cron then runs every 30 minutes.
 
-**Live URL:** _to be added_
+**Live URL:** https://deadlineos-seven.vercel.app (sign up, then click "Try with a sample semester" to explore with realistic data)
 
 ## API Overview
 
